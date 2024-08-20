@@ -1,0 +1,150 @@
+<%- include('partials/header') %>
+
+<div id="Newevent">
+
+  <h2>Create New Event</h2>
+  <p><strong> Hey <%=user%> !  </strong> Just wanted to let you know that all the starred* fields are required :) </p>
+
+  <%if(msg!=''){%>
+
+    <div class="form-group alert alert-primary alert-dismissible m-2 fade show" role="alert">
+      <strong><%=msg%> </strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+  
+  
+  <%}%>
+
+<form action="/newevent" method="post" enctype="multipart/form-data">
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="form-group">
+      <label for="eventname">Event Name*</label>
+      <input type="text" name="eventname" class="form-control" id="eventname" placeholder="Enter event name" required>
+
+    </div>
+    <div class="form-group">
+      <label for="eventlevel">Event Level*</label>
+      <select  name="eventlevel" class="form-control" id="eventlevel" placeholder="placeholder" required >
+        <option value="" selected disabled>Choose Here</option>
+        <option value="INTERNATIONAL">INTERNATIONAL</option>
+        <option value="NATIONAL">NATIONAL</option>
+      </select>
+    </div>
+
+<!-- Event types -->
+<div class="form-group">
+  <label for="eventtype">Event Type*</label>
+  <select class="form-control" name="eventtype" id="eventtype" required>
+    <option value="" selected disabled>Choose Event Type</option>
+    <option value="Conferences and Seminars">Conferences and Seminars</option>
+    <option value="Product Launches">Product Launches</option>
+    <option value="Corporate Retreats">Corporate Retreats</option>
+    <option value="Trade Shows and Exhibitions">Trade Shows and Exhibitions</option>
+    <option value="Networking Events">Networking Events</option>
+    <option value="Awards and Recognition Ceremonies">Awards and Recognition Ceremonies</option>
+    <option value="Corporate Social Responsibility (CSR) Events">Corporate Social Responsibility (CSR) Events</option>
+    <option value="Team-Building Activities">Team-Building Activities</option>
+    <option value="Town Hall Meetings">Town Hall Meetings</option>
+    <option value="Training and Development Programs">Training and Development Programs</option>
+    <option value="Holiday Parties and Celebrations">Holiday Parties and Celebrations</option>
+    <option value=" Client Appreciation Events"> Client Appreciation Events</option>
+    <option value="Board Meetings and Shareholder Meetings">Board Meetings and Shareholder Meetings</option>
+    <option value="Health and Wellness Programs">Health and Wellness Programs</option>
+    <option value="Sales Kickoffs">Sales Kickoffs</option> 
+  </select>
+</div>
+<div class="form-group">
+  <label for="startdate">Start Date*</label>
+  <input name="startdate" type="date" class="date form-control" id="startdate" required>
+
+</div>
+<div class="form-group">
+  <label for="enddate">End Date*</label>
+  <input name="enddate" type="date" class="date form-control" id="enddate" required>
+
+</div>
+<div class="form-group">
+  <label for="eventorganizers">Event Organizers*</label>
+  <input name="organizers" placeholder="Enter event organizers name" type="text" class="form-control" id="eventorganizers" required>
+</div>
+
+<div class="form-group">
+  <label for="eventdesc">Event Description</label>
+  <textarea name="desc" placeholder="Enter Event Description" class="form-control" rows="8" cols="80" id="eventdesc" ></textarea>
+</div>
+
+
+</div>
+<div class="col-lg-6 col-md-6 col-sm-12">
+  <div class="form-group">
+    <label for="eventposter">Event Poster</label>
+    <input name="filePoster" placeholder="placeholder" type="file" class="form-control" id="eventposter" accept=".png,.jpg,.jpeg">
+
+    
+
+  </div>
+  <div class="form-group">
+    <label for="eventreport">Event Report</label>
+    <input name="fileReport"  placeholder="placeholder" type="file" class="form-control" id="eventreport" accept=".doc,.dox,.pdf">
+  </div>
+
+<div class="form-group">
+  <label for="eventorganizationname">Organization Name</label>
+  <input  name="orgname" placeholder="Enter Organization Name" type="text" class="form-control" id="eventorganizationname">
+</div>
+
+<div class="form-group">
+  <label for="exteventorganizers">External Organizers</label>
+  <input name="extorganizers" placeholder="Enter External Organizers Name" type="text" class="form-control" id="exteventorganizers">
+</div>
+
+<div class="form-group">
+  <label for="speakertype">Speaker Type</label>
+
+  <select name="speakertype" class="form-control" id="speakertype">
+    <option value="" selected disabled>Choose Here  </option>
+    <option value="External">External</option>
+    <option value="Internal">Internal</option>
+  </select>
+
+</div>
+
+<div class="form-group">
+  <label for="speakername">Speaker Name</label>
+  <input name="speakername" placeholder="Enter Speaker Name" type="text" class="form-control" id="speakername">
+</div>
+
+<div class="form-group">
+  <label for="chief">Chief Guest Name</label>
+  <input name="chiefguest" placeholder="Enter Chief Guest Name" type="text" class="form-control" id="chief">
+</div>
+
+<div class="form-group">
+  <label for="location">Location</label>
+  <textarea name="loc" placeholder="Enter Location" class="form-control" rows="8" cols="80" id="eventdesc" ></textarea>
+  <!-- <input name="location" placeholder="Location Name" type="text" class="form-control" id="chief"> -->
+</div>
+
+
+
+</div>
+<div class="col-12">
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+    <label class="form-check-label" for="exampleCheck1">I've Checked Everything*</label>
+  </div>
+</div>
+<div class="col-12 text-center">
+  <button  type="submit" class="btn btn-primary">Create Event</button>
+
+</div>
+
+
+
+</form>
+</div>
+<%- include('partials/footer') %>
